@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+</head>
+<body>
+<h1>List of Students</h1>
+<table>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"/>
+        <td th:text="${student.firstName}"/>
+        <td th:text="${student.lastName}"/>
+        <td th:text="${student.externalStudentId}"/>
+    </tr>
+</table>
+
+</body>
+</html>
