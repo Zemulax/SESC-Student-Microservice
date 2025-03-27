@@ -7,8 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
-import java.util.Objects;
-
 @Component
 public class IntegrationService {
 
@@ -21,7 +19,7 @@ public class IntegrationService {
 
     public Account getStudentAccount(String studentId) {
         return restClient.get()
-                .uri("http://localhost:8081/accounts/student/"+ studentId)
+                .uri("http://financeapp:8081/accounts/student/"+ studentId)
                 .retrieve()
                 .body(Account.class);
 
@@ -36,7 +34,7 @@ public class IntegrationService {
     //public ResponseEntity<Void> response =
     public ResponseEntity<Void> createCourseFeeInvoice(Invoice invoice){
         return restClient.post()
-                .uri("http://localhost:8081/invoices/")
+                .uri("http://financeapp:8081/invoices/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(invoice)
                 .retrieve()
@@ -50,7 +48,7 @@ public class IntegrationService {
 
     public ResponseEntity<Void> createFinancialAccount(Account account){
         return restClient.post()
-                .uri("http://localhost:8081/accounts/")
+                .uri("http://financeapp:8081/accounts/")
                 .body(account)
                 .retrieve()
                 .toBodilessEntity();
@@ -58,7 +56,7 @@ public class IntegrationService {
 
     public ResponseEntity<Void> createLibraryAccount(Account account){
         return restClient.post()
-                .uri("http://localhost:80/api/register")
+                .uri("http://libraryapp:80/api/register")
                 .body(account)
                 .retrieve()
                 .toBodilessEntity();

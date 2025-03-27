@@ -1,0 +1,72 @@
+networks:
+  finance-masterfinal_default:
+    external: true
+
+services:
+  discovery-server:
+    build: ./discovery-server
+    ports:
+      - "8761:8761"
+    expose:
+      - "8761"
+    networks:
+      -  finance-masterfinal_default
+
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    networks:
+      -  finance-masterfinal_default
+    depends_on:
+      - discovery-server
+
+  config-server:
+    build: ./config-server
+    ports:
+      - "8888:8888"
+    expose:
+      - "8888"
+    networks:
+      -  finance-masterfinal_default
+    depends_on:
+      - discovery-server
+
+  student-service:
+    build: ./student-service
+    ports:
+      - "8090:8090"
+    expose:
+      - "8090"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://studentsdb:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_APPLICATION_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_APPLICATION_PASSWORD}
+
+    networks:
+      -  finance-masterfinal_default
+    depends_on:
+      - discovery-server
+      - config-server
+      - api-gateway
+      - studentsdb
+
+  studentsdb:
+    image: mariadb
+    restart: always
+    ports:
+      - "3305:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    healthcheck:
+      test: "mariadb --user=root --password=${DB_ROOT_PASSWORD} --execute \"SHOW DATABASES;\""
+      timeout: 2s
+      retries: 10
+    volumes:
+      - ./migrations/mysql-migrations.sql:/docker-entrypoint-initdb.d/mysql-migrations.sql
+    networks:
+      -  finance-masterfinal_default
+

@@ -1,0 +1,8 @@
+incase application.properties is needed:
+server.port=8090
+spring.datasource.url=jdbc:mariadb://studentsdb:3306/students
+spring.datasource.driverClassName=org.mariadb.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect
+spring.application.name=student-service
+spring.config.import=configserver:http://config-server:8888
+spring.jpa.hibernate.ddl-auto=update
