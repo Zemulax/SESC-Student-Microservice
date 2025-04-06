@@ -47,6 +47,18 @@ public class StudentServiceImplementation implements StudentService {
         else {System.out.println("Student not found");}
         return null;
     }
+    @Override
+    public Student getStudentByEmailAndPassword(String email, String password) {
+        if (studentRepository.existsByEmail(email)) {
+            Student student = studentRepository.findByEmail(email).getFirst();
+            if (student.getPassword().equals(password)){
+                return student;
+            }
+            else {System.out.println("Incorrect password or email");}
+        }
+        else {System.out.println("Student not found as: " + email);}
+        return null;
+    }
 
     @Override
     public void deleteStudentById(Long studentId) {

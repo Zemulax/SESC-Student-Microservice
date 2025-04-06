@@ -20,6 +20,8 @@ public class Student {
     private String externalStudentId;
     private String firstName;
     private String lastName;
+    private String email;
+    private String password;
 
 
     @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
