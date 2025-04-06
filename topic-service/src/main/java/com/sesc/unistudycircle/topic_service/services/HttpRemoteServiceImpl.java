@@ -3,12 +3,7 @@ package com.sesc.unistudycircle.topic_service.services;
 import com.sesc.unistudycircle.topic_service.dtos.StudentInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.service.spi.ServiceException;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClient;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -16,9 +11,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RequiredArgsConstructor
 @Slf4j
 public class HttpRemoteServiceImpl implements HttpRemoteService {
-    private final RestTemplate restTemplate;
     private final  WebClient.Builder webClientBuilder;
-    private final RestClient restClient;
 
     @Override
     public StudentInfo get(String url) {

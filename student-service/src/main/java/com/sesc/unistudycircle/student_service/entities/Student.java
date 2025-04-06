@@ -21,6 +21,7 @@ public class Student {
     private String firstName;
     private String lastName;
 
+
     @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "course_student",
