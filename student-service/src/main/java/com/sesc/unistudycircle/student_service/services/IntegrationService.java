@@ -2,6 +2,7 @@ package com.sesc.unistudycircle.student_service.services;
 
 import com.sesc.unistudycircle.student_service.entities.Account;
 import com.sesc.unistudycircle.student_service.entities.Invoice;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -22,13 +23,6 @@ public class IntegrationService {
                 .uri("http://financeapp:8081/accounts/student/"+ studentId)
                 .retrieve()
                 .body(Account.class);
-
-
-       //Account studentFinanceAccount = restClient.get().uri("http://localhost:8081/accounts/student/"+ studentId)
-             //  .retrieve()
-            //    .body(Account.class);
-
-       // return studentFinanceAccount;
     }
 
     //public ResponseEntity<Void> response =

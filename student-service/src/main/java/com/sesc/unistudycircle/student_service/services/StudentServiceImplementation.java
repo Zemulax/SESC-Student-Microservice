@@ -17,26 +17,24 @@ public class StudentServiceImplementation implements StudentService {
     private final IntegrationService integrationService;
 
 
-
     public StudentServiceImplementation(StudentRepository studentRepository, IntegrationService integrationService) {
         this.studentRepository = studentRepository;
         this.integrationService = integrationService;
     }
 
     @Override
-    public Student saveStudent(Student student, Account account) {
-        if(account.getStudentId() != student.getExternalStudentId() ) {
-            account.setStudentId(student.getExternalStudentId());
-            integrationService.createFinancialAccount(account);
-            integrationService.createLibraryAccount(account);
-        }
-        else {
-         throw new HttpClientErrorException(HttpStatus.CONFLICT);
-        }
+    public Student saveStudent(Student student) {
+        return studentRepository.save(student);
+//        //if(account.getStudentId() != student.getExternalStudentId() ) {
+//            //account.setStudentId(student.getExternalStudentId());
+//            //integrationService.createFinancialAccount(account);
+//            //integrationService.createLibraryAccount(account);
+//        //}
+//        else {
+//         throw new HttpClientErrorException(HttpStatus.CONFLICT);
+//        }
         //throw new IllegalArgumentException("Topic cannot be creted
         // with invalid student id" + studentIdbyTopic);
-
-        return studentRepository.save(student);
     }
 
     @Override

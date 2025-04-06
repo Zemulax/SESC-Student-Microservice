@@ -8,6 +8,19 @@ spring:
     web-application-type: reactive  # You are using WebFlux, so this is correct
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "http://localhost:81"
+            allowed-methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowed-headers: "*"
+        add-to-simple-url-handler-mapping: true
       discovery:
         locator:
           enabled: true  # Enable dynamic route discovery from Eureka

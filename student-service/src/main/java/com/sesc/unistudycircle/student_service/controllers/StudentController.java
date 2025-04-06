@@ -14,10 +14,10 @@ import java.util.List;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-
 @RestController
 @RequestMapping("/student")
 @EnableWebMvc
+@CrossOrigin(origins = "http://localhost:81", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.OPTIONS, RequestMethod.DELETE})
 public class StudentController {
     private final StudentService studentService;
 
@@ -26,10 +26,16 @@ public class StudentController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Student> createStudent(@RequestBody Student student, Account account) {
-        Student createdStudent = studentService.saveStudent(student, account);
+    public ResponseEntity<Student> createStudent(@RequestBody Student student) {
+        Student createdStudent = studentService.saveStudent(student);
         return new ResponseEntity<>(createdStudent, HttpStatus.CREATED);
     }
+
+    //@PostMapping("/create")
+    //    public ResponseEntity<Student> createStudent(@RequestBody Student student, Account account) {
+    //        Student createdStudent = studentService.saveStudent(student, account);
+    //        return new ResponseEntity<>(createdStudent, HttpStatus.CREATED);
+    //    }
 
 
         @GetMapping
