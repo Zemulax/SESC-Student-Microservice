@@ -37,11 +37,6 @@
     })
             .then(response => response.json())
             .then(data => {
-              localStorage.setItem('email', data.email);
-              localStorage.setItem('studentId', data.id);
-              localStorage.setItem('studentName', data.firstName);
-              localStorage.setItem('lastName', data.lastName);
-
               enterStudentDashboard()
             })
             .catch(error => {
