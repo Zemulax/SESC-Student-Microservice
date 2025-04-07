@@ -36,6 +36,7 @@
     //get items from localstorage
     const email = localStorage.getItem('email');
     const studentId = localStorage.getItem('studentId');
+    console.log(studentId);
 
     fetch('http://localhost:8080/courses', {
         method: 'GET',

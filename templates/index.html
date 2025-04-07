@@ -37,7 +37,8 @@
 
     const email = localStorage.getItem('email');
     const studentId = localStorage.getItem('studentId');
-    console.log(studentId);
+
+    console.log("here",localStorage.getItem('studentId'), email, studentId);
 
     //fetch course enrolled
     fetch(`/courses/${studentId}`)
