@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Student!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--navigation-->
+<div class="navigation">
+    <a href="index.html">Home</a>
+    <a href="coursesoffered.html">Courses</a>
+    <a href="profile.html">Profile</a>
+    <a href="graduation.html">MyGraduation</a>
+    <a href="about.html">About</a>
+
+</div>
+
+<div class="main">
+    <h1 id="welcomeMessage">Welcome, Student</h1>
+    <h1>Course Enrolled in</h1>
+    <table id="courseEnrolledIn">
+
+        <thead>
+        <tr>
+            <th>CourseID</th>
+            <th>CourseTitle</th>
+            <th>CourseFee</th>
+            <th>CourseDescription</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<script>
+
+    const email = localStorage.getItem('email');
+    const studentId = localStorage.getItem('studentId');
+    console.log(studentId);
+
+    //fetch course enrolled
+    fetch(`/courses/${studentId}`)
+    .then(response => response.json())
+    .then(courses => {
+        const table = document.getElementById('courseEnrolledIn');
+        courses.forEach(course => {
+            table.innerHTML +=`
+            <tr>
+                <td>${course.courseId}</td>
+                <td>${course.title}</td>
+                <td>${course.fee}</td>
+                <td>${course.description}</td>
+            </tr>
+            `
+        })
+    });
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const response = await fetch(`student/${studentId}`);
+        if (response.ok) {
+            const user = await response.json();
+            renderStudentDashboard(user);
+        }
+        else console.log('There was a problem getting user data');
+    });
+
+    function renderStudentDashboard(user) {
+        document.getElementById('welcomeMessage').textContent =
+            `Welcome ${user.firstName}!`;
+    }
+
+</script>
+
+
+</body>
+</html>

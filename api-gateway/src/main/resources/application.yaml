@@ -36,6 +36,11 @@ spring:
           uri: lb://topic-service  # Using service discovery (Eureka)
           predicates:
             - Path=/topic/**  # This will match all requests to /topic/** (POST, GET, PUT, DELETE)
+        - id: course-service-route
+          uri: lb://student-service
+          predicates:
+            - Path=/courses/** #match all requests to course controller
+
 
 eureka:
   client:

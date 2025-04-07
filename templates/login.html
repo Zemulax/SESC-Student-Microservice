@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+  </style>
+</head>
+<body>
+<h1>Log In</h1>
+<form id="log-in">
+  <label for="email">Email</label>
+  <input type="text" id="email" name="email" required placeholder="Enter Email">
+
+  <label for="password">Password</label>
+  <input type="text" id="password" name="password" required placeholder="Enter Password" minlength="4" hidden>
+
+  <input type="submit" value="Log In">
+</form>
+
+<script>
+  // Handle form submission
+  document.getElementById('log-in').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const formData = {
+      email: document.getElementById('email').value,
+      password: document.getElementById('password').value
+    };
+    console.log(formData);
+
+    fetch('/student/authenticate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+            .then(response => response.json())
+            .then(data => {
+              localStorage.setItem('email', data.email);
+              localStorage.setItem('studentId', data.studentId);
+              localStorage.setItem('studentName', data.firstName);
+              localStorage.setItem('lastName', data.lastName);
+              enterStudentDashboard()
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('Failed to connecttt to the server. cause: '+ error.toString());
+            });
+  });
+  function enterStudentDashboard() {
+    window.location.href = 'index.html';
+  }
+
+</script>
+</body>
+</html>

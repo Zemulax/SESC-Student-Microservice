@@ -12,12 +12,12 @@ import java.util.Set;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long courseId;
     private String title;
     private String description;
-    private Double fee;
+    private String fee;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "coursesEnrolledIn", fetch = FetchType.LAZY)
-    private Set<Student> studentsEnrolledInCourse = new HashSet<>();
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
+    private Set<Student> students = new HashSet<>();
 }

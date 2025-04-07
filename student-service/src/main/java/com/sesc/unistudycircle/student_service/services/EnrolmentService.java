@@ -20,7 +20,7 @@ public class EnrolmentService {
     }
 
     public void enrollStudent(Student student, Course course, Invoice invoice) {
-        student.enrollCourse(course);
+        //student.enrollCourse(course);
         studentRepository.save(student);
         integrationService.createCourseFeeInvoice(invoice);
 

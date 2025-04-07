@@ -32,13 +32,13 @@ public class Student {
     )
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Set<Course> coursesEnrolledIn = new HashSet<>();
+    private Set<Course> courses = new HashSet<>();
 
-    public void enrollCourse(Course course) {
-        if (!coursesEnrolledIn.contains(course)) {
-            coursesEnrolledIn.add(course);
-        }
-        coursesEnrolledIn = new HashSet<>();
-    }
+//    public void enrollCourse(Course course) {
+//        if (!coursesEnrolledIn.contains(course)) {
+//            coursesEnrolledIn.add(course);
+//        }
+//        coursesEnrolledIn = new HashSet<>();
+//    }
 
 }

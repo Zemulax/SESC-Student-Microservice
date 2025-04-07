@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Student!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--navigation-->
+<div class="navigation">
+    <a href="index.html">Home</a>
+    <a href="coursesoffered.html">Courses</a>
+    <a href="profile.html">Profile</a>
+    <a href="graduation.html">MyGraduation</a>
+    <a href="about.html">About</a>
+
+</div>
+
+<div class="main">
+    <h1>We offer the following courses</h1>
+    <table id="coursesTable">
+        <thead>
+        <tr>
+            <th>CourseID</th>
+            <th>CourseTitle</th>
+            <th>CourseFee</th>
+            <th>CourseDescription</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+
+<script>
+    //get items from localstorage
+    const email = localStorage.getItem('email');
+    const studentId = localStorage.getItem('studentId');
+
+    fetch('http://localhost:8080/courses', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json'  // Ensure you expect JSON back
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                console.log("couldnnt find courses");
+            }
+            return response.json(); //response body
+        })
+        .then(courses => {
+            const table = document.getElementById('coursesTable');
+            courses.forEach(course => {
+                table.innerHTML += `
+                <tr>
+                    <td>${course.courseId}</td>
+                    <td>${course.title}</td>
+                    <td>${course.fee}</td>
+                    <td>${course.description}</td>
+                    <td><button class="enrollButton" onclick="enrollStudent(${course.courseId})">Enroll Now</button></td>
+                </tr>
+                `
+            })
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+
+
+    //enroll a student
+    function enrollStudent(courseId) {
+        fetch(`/courses/courses/${courseId}/students/${studentId}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({courseId: courseId, studentId: studentId})
+        })
+            .then (response =>{
+                if (response.ok) {
+                    alert('Registration successful!');
+                }
+
+            })
+    }
+</script>
+
+</body>
+</html>

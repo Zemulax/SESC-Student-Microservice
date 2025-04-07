@@ -17,7 +17,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RestController
 @RequestMapping("/student")
 @EnableWebMvc
-@CrossOrigin(origins = "http://localhost:81", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.OPTIONS, RequestMethod.DELETE})
 public class StudentController {
     private final StudentService studentService;
 

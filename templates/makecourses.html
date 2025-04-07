@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="course-form">
+  <label for="title">Course Title</label>
+  <input type="text" id="title" name="title" required placeholder="enter course title">
+
+  <label for="fee">Fee</label>
+  <input type="text" id="fee" name="lastname" required placeholder="course fee">
+
+  <label for="description">Description</label>
+  <input type="text" id="description" name="description" required placeholder="what the course is about">
+
+  <input type="submit" class="enrollButton" value="create">
+
+</form>
+
+<script>
+  // Handle form submission
+  document.getElementById('course-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Preventdefault form submission
+
+    const formData = {
+      title: document.getElementById('title').value,
+      fee: document.getElementById('fee').value,
+      description: document.getElementById('description').value
+    };
+    console.log(formData);
+
+    //create course
+    fetch('/courses/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+            .then(response => {
+              if (response.ok) {
+                alert('Course Created!');
+
+              } else {
+                alert('Error during creation of the Course!');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('Failed to connect to the server. cause: '+ error.toString());
+            });
+  });
+</script>
+</body>
+</html>

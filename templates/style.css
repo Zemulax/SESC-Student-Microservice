@@ -1,0 +1,133 @@
+
+.container{
+    margin: auto;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #3f1e55;
+    margin: 10px;
+    flex-direction: column;
+    display: flex;
+    color: aliceblue;
+    font-family: monospace;
+}
+
+
+.navigation {
+    font-family: monospace;
+    display: flex;
+    background-color: #745294;
+    padding: 10px;
+    justify-content: center;
+    position: fixed;
+    border-radius: 10px;
+    z-index: 20;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+.navigation a:hover {
+    background-color: #3c165f;
+    border-radius: 9px;
+}
+
+.main{
+    margin-top: 200px;
+}
+#coursesTable{
+
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Monospaced, sans-serif;
+
+}
+#coursesTable th, #coursesTable td {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: left;
+}
+#coursesTable th {
+    background-color: #b34d22;
+    font-weight: bold;
+    color: white;
+}
+#coursesTable tr:nth-child(even) {
+    background-color: lightgray;
+
+}
+
+#enroll:hover {
+    background-color: #8caa5e;
+}
+
+
+#card{
+    font-size: 30px;
+}
+#courseEnrolledIn{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Monospaced, sans-serif;
+}
+#courseEnrolledIn th, #courseEnrolledIn td {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: left;
+}
+#courseEnrolledIn th{
+    background-color: #215104;
+    font-weight: bold;
+    color: white;
+}
+
+.enrollButton{
+    background-color: orange;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bolder;
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px orange;
+    border-style: none;
+    color: white;
+}
+.enrollButton:hover{
+    background-color: #203b04;
+}
+
+.profile{
+    margin-top: 200px;
+}
+#forms {
+    width: auto;
+    margin: auto;
+    align-content: flex-end;
+}
+label, input {
+    display: block;
+    margin-bottom: 10px;
+    width: 600px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    border-style: none;
+}
+input[type="submit"] {
+    margin-top: 20px;
+    width: 300px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
