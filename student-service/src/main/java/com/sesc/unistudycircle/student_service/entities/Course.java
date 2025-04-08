@@ -15,7 +15,7 @@ public class Course {
     private Long courseId;
     private String title;
     private String description;
-    private String fee;
+    private double fee;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)

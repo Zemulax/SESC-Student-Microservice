@@ -40,14 +40,14 @@ public class CourseController {
     @PostMapping("/courses/{courseId}/students/{studentId}")
     public ResponseEntity<Void> enrollCourse(
             @PathVariable Long courseId,
-            @PathVariable Long studentId) {
+            @PathVariable String studentId) {
         courseService.enrollCourse(courseId, studentId);
         return ResponseEntity.ok().build();
     }
 
     //get course with this specific id
     @GetMapping("/{studentId}")
-    public ResponseEntity<List<Course>> getCourseById(@PathVariable Long studentId) {
+    public ResponseEntity<List<Course>> getCourseById(@PathVariable String studentId) {
         List<Course> courses = courseService.getCourseByStudentId(studentId);
         return new ResponseEntity<>(courses, HttpStatus.OK);
     }

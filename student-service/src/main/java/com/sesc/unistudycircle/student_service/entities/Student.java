@@ -7,6 +7,8 @@ import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
 @Data
@@ -17,7 +19,8 @@ public class Student {
     @Column(name = "id")
     private Long id;
 
-    private String externalStudentId;
+    private String studentId = "c" +
+            String.format("%04d", ThreadLocalRandom.current().nextInt(10_000));
     private String firstName;
     private String lastName;
     private String email;

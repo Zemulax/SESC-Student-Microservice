@@ -10,7 +10,6 @@ public class Configuration {
     @Bean
     public RestClient restClient() {
         return RestClient.builder()
-//                .baseUrl("http://api-gateway:8080")
                 .build();
     }
 }

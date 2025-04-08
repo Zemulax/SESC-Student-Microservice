@@ -30,11 +30,6 @@ public class StudentController {
         return new ResponseEntity<>(createdStudent, HttpStatus.CREATED);
     }
 
-    //@PostMapping("/create")
-    //    public ResponseEntity<Student> createStudent(@RequestBody Student student, Account account) {
-    //        Student createdStudent = studentService.saveStudent(student, account);
-    //        return new ResponseEntity<>(createdStudent, HttpStatus.CREATED);
-    //    }
 
 
         @GetMapping
@@ -45,7 +40,7 @@ public class StudentController {
 
 
     @GetMapping("/{studentId}")
-    public ResponseEntity<Student> getStudentById(@PathVariable Long studentId) {
+    public ResponseEntity<Student> getStudentById(@PathVariable String studentId) {
         Student student = studentService.getStudentById(studentId);
         if (student == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -62,8 +57,9 @@ public class StudentController {
         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 
+    //these need String studentId too
         @PutMapping("/{studentId}")
-    public ResponseEntity<Student> updateStudent(@PathVariable Long studentId, @RequestBody Student updatedstudent) {
+    public ResponseEntity<Student> updateStudent(@PathVariable String studentId, @RequestBody Student updatedstudent) {
         Student student = studentService.updateStudentById(studentId, updatedstudent);
         return new ResponseEntity<>(student, HttpStatus.OK);
     }

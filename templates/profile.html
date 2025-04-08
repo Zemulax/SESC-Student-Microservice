@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Student!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--navigation-->
+<div class="navigation">
+    <a href="index.html">Home</a>
+    <a href="coursesoffered.html">Courses</a>
+    <a href="profile.html">Profile</a>
+    <a href="graduation.html">MyGraduation</a>
+    <a href="about.html">About</a>
+
+</div>
+
+<div class="main">
+    <h1 id="welcomeMessage"></h1>
+    <div id="userDetails"></div>
+    <button class="enrollButton" onclick="openForm()">Update Profile</button>
+    <div id="updateform"></div>
+</div>
+<script>
+    const email = localStorage.getItem('email');
+    const studentId = localStorage.getItem('studentId')
+    const firstName = localStorage.getItem('firstName');
+    const lastName = localStorage.getItem('lastName');
+
+    console.log(firstName, lastName, studentId, email);
+
+    renderStudentDashboard();
+    function renderStudentDashboard() {
+        ;
+
+        document.getElementById('welcomeMessage').textContent =
+            `${firstName}, update your Profile here!`;
+
+        document.getElementById('userDetails').innerHTML = `
+        <div id="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Current Profile</h5>
+                        <p>First Name:${firstName}</p>
+                        <p>Last Name:${lastName}</p>
+                        <p>StudentID:${studentId}</p>
+                        <p>Email:${email}</p>
+
+                    </div>
+                </div>`;
+
+    }
+    function openForm() {
+        document.getElementById('updateform').innerHTML = `
+<hr/>
+        <h2>Update Profile</h2>
+<form id="updateforms">
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" name="first-name" placeholder="First Name">
+
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" name="lastname" placeholder="Last Name">
+
+     <input type="submit" class="enrollButton" value="Confirm Update">
+</form>
+
+</form>
+</div>`;
+
+        document.getElementById('updateforms').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById('first-name').value.trim();
+            const lastName = document.getElementById('last-name').value.trim();
+
+            const formData = {};
+            if(firstName) formData.firstName = firstName;
+            if(lastName) formData.lastName = lastName;
+
+            //only submit if atleast one field has been populated
+            if (Object.keys(formData).length > 0) {
+                fetch(`/student/${studentId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        localStorage.clear();
+                        localStorage.setItem('studentId', data.studentId);
+                        console.log("is it? ", data.studentId);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Failed to connect to the server. cause: '+ error.toString());
+                    });
+
+            }
+            else {alert('Update failed! atleast fill out a field!');}
+
+
+        });
+
+    }
+
+</script>
+
+</body>
+</html>

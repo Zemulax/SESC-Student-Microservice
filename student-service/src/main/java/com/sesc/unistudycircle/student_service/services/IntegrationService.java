@@ -25,7 +25,7 @@ public class IntegrationService {
                 .body(Account.class);
     }
 
-    //public ResponseEntity<Void> response =
+
     public ResponseEntity<Void> createCourseFeeInvoice(Invoice invoice){
         return restClient.post()
                 .uri("http://financeapp:8081/invoices/")
@@ -41,11 +41,18 @@ public class IntegrationService {
     }
 
     public ResponseEntity<Void> createFinancialAccount(Account account){
-        return restClient.post()
-                .uri("http://financeapp:8081/accounts/")
-                .body(account)
-                .retrieve()
-                .toBodilessEntity();
+        try{
+            return restClient.post()
+                    .uri("http://financeapp:8081/accounts/")
+                    .body(account)
+                    .retrieve()
+                    .toBodilessEntity();
+        }
+        catch (Exception e){
+            System.out.println("FAILED TO CREATE ACCOUNT:  "+ e);
+        }
+        return  ResponseEntity.noContent().build();
+
     }
 
     public ResponseEntity<Void> createLibraryAccount(Account account){

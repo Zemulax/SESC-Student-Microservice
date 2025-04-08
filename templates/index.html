@@ -35,10 +35,8 @@
 
 <script>
 
-    const email = localStorage.getItem('email');
-    const studentId = localStorage.getItem('studentId');
-
-    console.log("here",localStorage.getItem('studentId'), email, studentId);
+    studentId = localStorage.getItem('studentId');
+    console.log("we got"+ studentId);
 
     //fetch course enrolled
     fetch(`/courses/${studentId}`)
@@ -62,12 +60,14 @@
         if (response.ok) {
             const user = await response.json();
             localStorage.setItem('email', user.email);
-            localStorage.setItem('studentId', user.id);
+            localStorage.setItem('studentId', user.studentId);
             localStorage.setItem('firstName', user.firstName);
             localStorage.setItem('lastName', user.lastName);
             renderStudentDashboard(user);
         }
-        else console.log('There was a problem getting user data');
+        else{
+            console.log("no email yet");
+        }
     });
 
     function renderStudentDashboard(user) {

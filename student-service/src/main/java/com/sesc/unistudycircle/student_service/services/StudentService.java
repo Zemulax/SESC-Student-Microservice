@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface StudentService {
     Student saveStudent(Student student);
-    Student getStudentById(Long id);
+    Student getStudentById(String studentId);
     void deleteStudentById(Long id);
-    Student updateStudentById(Long id, Student updatedStudent);
+    Student updateStudentById(String studentId, Student updatedStudent);
     Student getStudentByEmailAndPassword(String email, String password);
     List<Student> getAllStudents();
 

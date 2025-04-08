@@ -18,6 +18,8 @@
 </form>
 
 <script>
+
+
   // Handle form submission
   document.getElementById('log-in').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
@@ -26,7 +28,6 @@
       email: document.getElementById('email').value,
       password: document.getElementById('password').value
     };
-    console.log(formData);
 
     fetch('/student/authenticate', {
       method: 'POST',
@@ -37,7 +38,12 @@
     })
             .then(response => response.json())
             .then(data => {
+              localStorage.clear();
+              localStorage.setItem('studentId', data.studentId);
+              console.log("is it? ", data.studentId);
               enterStudentDashboard()
+
+
             })
             .catch(error => {
               console.error('Error:', error);
