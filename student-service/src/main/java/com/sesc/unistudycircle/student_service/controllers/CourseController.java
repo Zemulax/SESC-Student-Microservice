@@ -42,10 +42,10 @@ public class CourseController {
             @PathVariable Long courseId,
             @PathVariable String studentId) {
         courseService.enrollCourse(courseId, studentId);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    //get course with this specific id
+    //get course with this specific studentid
     @GetMapping("/{studentId}")
     public ResponseEntity<List<Course>> getCourseById(@PathVariable String studentId) {
         List<Course> courses = courseService.getCourseByStudentId(studentId);

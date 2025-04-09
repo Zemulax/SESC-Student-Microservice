@@ -1,13 +1,11 @@
 package com.sesc.unistudycircle.student_service.entities;
-
-import jakarta.transaction.Status;
+import jakarta.persistence.Id;
 import lombok.Data;
-
-import java.lang.reflect.Type;
 import java.time.LocalDate;
 
 @Data
 public class Invoice {
+    @Id
     private Long id;
     private String reference;
     private double amount;
@@ -15,6 +13,7 @@ public class Invoice {
     private Type type;
     private Status status;
     private Account account;
+
 
     public enum Type {
         LIBRARY_FINE,

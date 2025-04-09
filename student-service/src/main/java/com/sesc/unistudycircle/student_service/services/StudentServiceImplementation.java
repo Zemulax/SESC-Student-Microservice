@@ -13,15 +13,18 @@ import java.util.Set;
 public class StudentServiceImplementation implements StudentService {
     private final StudentRepository studentRepository;
 
+
     public StudentServiceImplementation(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
+    //create new student
     @Override
     public Student saveStudent(Student student) {
         return studentRepository.save(student);
     }
 
+    //get student by specified studentID
     @Override
     public Student getStudentById(String studentId) {
         if (studentRepository.existsByStudentId(studentId)) {
@@ -30,6 +33,8 @@ public class StudentServiceImplementation implements StudentService {
         else {System.out.println("Student not found");}
         return null;
     }
+    //look for a student with a specific email address and password
+    //return student object if found, else just null
     @Override
     public Student getStudentByEmailAndPassword(String email, String password) {
         if (studentRepository.existsByEmail(email)) {
@@ -43,6 +48,7 @@ public class StudentServiceImplementation implements StudentService {
         return null;
     }
 
+    //delete student by specified ID
     @Override
     public void deleteStudentById(Long studentId) {
         if (studentRepository.existsById(studentId)) {
@@ -51,6 +57,7 @@ public class StudentServiceImplementation implements StudentService {
         else {System.out.println("Student not found");}
     }
 
+    //update student
     @Override
     public Student updateStudentById(String studentId, Student updatedStudent) {
 

@@ -1,6 +1,5 @@
 package com.sesc.unistudycircle.student_service.services;
 
-import com.sesc.unistudycircle.student_service.entities.Account;
 import com.sesc.unistudycircle.student_service.entities.Course;
 import com.sesc.unistudycircle.student_service.entities.Student;
 import com.sesc.unistudycircle.student_service.repositories.CourseRepository;
@@ -17,6 +16,7 @@ public class CourseServiceImplementation implements CourseService {
     private final EnrolmentService enrolmentService;
 
 
+
     public CourseServiceImplementation(CourseRepository courseRepository,
                                        StudentService studentService,
                                       EnrolmentService enrolmentService) {
@@ -26,11 +26,13 @@ public class CourseServiceImplementation implements CourseService {
 
     }
 
+    //get a list of all courses
     @Override
     public List<Course> getAllCourses() {
         return courseRepository.findAll();
     }
 
+    //add a new course
     @Override
     public Course createCourse(Course course) {
         courseRepository.save(course);
@@ -41,11 +43,12 @@ public class CourseServiceImplementation implements CourseService {
     public void enrollCourse(Long courseId, String studentId) {
         Student student = studentService.getStudentById(studentId);
         Course course = courseRepository.findById(courseId)
-                .orElseThrow(() -> new RuntimeException("Course not found"));
+                .orElseThrow(() -> new RuntimeException("Course not found please"));
         student.getCourses().add(course);
-        studentService.saveStudent(student);
 
+        //create a financial account for enrolled student and an invoice
         enrolmentService.enrollStudent(student, course);
+        studentService.saveStudent(student);
 
     }
 

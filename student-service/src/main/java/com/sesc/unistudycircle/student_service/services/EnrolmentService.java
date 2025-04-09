@@ -20,41 +20,44 @@ public class EnrolmentService {
     public void enrollStudent(Student student, Course course) {
         try{
 
-            if(integrationService.getStudentAccount(student.getStudentId()) != null) {
+            //check if student has an account already
+            Account account = integrationService.getStudentAccount(student.getStudentId());
 
-                Account account = integrationService.getStudentAccount(student.getStudentId());
-                System.out.println("Student Account Exists, giving them another invoice");
+            //if yes, just create an invoice for the enrolled course
+            if(account != null) {
+
                 Invoice invoice = new Invoice();
                 invoice.setAccount(account);
                 invoice.setType(Invoice.Type.TUITION_FEES);
                 invoice.setAmount(course.getFee());
                 invoice.setDueDate(LocalDate.now());
 
-                integrationService.createCourseFeeInvoice(invoice);
+                Invoice invoiceRef = integrationService.createCourseFeeInvoice(invoice);
+                student.getInvoiceReferences().add(invoiceRef.getReference());
             }
             else {
-                Account account = new Account();
-                account.setStudentId(student.getStudentId());
-                account.setHasOutstandingBalance(true);
+                //else create an account first then attch an invoice
+                Account account1 = new Account();
 
+                account1.setStudentId(student.getStudentId());
 
                 Invoice invoice = new Invoice();
-                invoice.setAccount(account);
+                invoice.setAccount(account1);
                 invoice.setType(Invoice.Type.TUITION_FEES);
                 invoice.setAmount(course.getFee());
                 invoice.setDueDate(LocalDate.now());
 
-                integrationService.createFinancialAccount(account);
-                integrationService.createLibraryAccount(account);
-                integrationService.createCourseFeeInvoice(invoice);
+                integrationService.createFinancialAccount(account1);
+                integrationService.createLibraryAccount(account1);
+
+                Invoice invoiceRef = integrationService.createCourseFeeInvoice(invoice);
+                student.getInvoiceReferences().add(invoiceRef.getReference());
+
             }
         }
         catch (Exception e){
-            System.out.println("Account creation failed: " + e.getMessage());
+            System.out.println("Account creation failed: "+ e.getMessage());
         }
-
-
-
 
     }
 

@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
@@ -20,11 +18,18 @@ public class Student {
     private Long id;
 
     private String studentId = "c" +
-            String.format("%04d", ThreadLocalRandom.current().nextInt(10_000));
+            String.format("%05d", ThreadLocalRandom.current().nextInt(100_000));
+    @Column(nullable = false)
     private String firstName;
+    @Column(nullable = false)
     private String lastName;
+    @Column(unique = true)
     private String email;
+    @Column(nullable = false)
     private String password;
+
+    @ElementCollection
+    private List<String> invoiceReferences = new ArrayList<>();
 
 
     @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
@@ -36,12 +41,5 @@ public class Student {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Set<Course> courses = new HashSet<>();
-
-//    public void enrollCourse(Course course) {
-//        if (!coursesEnrolledIn.contains(course)) {
-//            coursesEnrolledIn.add(course);
-//        }
-//        coursesEnrolledIn = new HashSet<>();
-//    }
 
 }
