@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome Student!</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!--navigation-->
 <div class="navigation">
     <a href="index.html">Home</a>
-    <a href="coursesoffered.html">Courses</a>
+    <a href="coursesOffered.html">Courses</a>
     <a href="profile.html">Profile</a>
     <a href="graduation.html">MyGraduation</a>
-    <a href="about.html">About</a>
 
 </div>
 
@@ -32,6 +31,9 @@
         </thead>
     </table>
 </div>
+
+<br>
+<button id="test" class="enrollButton" onclick="logout()" >Log Out</button>
 
 <script>
 
@@ -73,6 +75,11 @@
     function renderStudentDashboard(user) {
         document.getElementById('welcomeMessage').textContent =
             `Welcome ${user.firstName}!`;
+    }
+
+    function logout() {
+        localStorage.clear()
+        window.location.href = 'login.html';
     }
 
 </script>

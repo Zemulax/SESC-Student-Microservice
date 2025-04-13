@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome Student!</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!--navigation-->
 <div class="navigation">
     <a href="index.html">Home</a>
-    <a href="coursesoffered.html">Courses</a>
+    <a href="coursesOffered.html">Courses</a>
     <a href="profile.html">Profile</a>
     <a href="graduation.html">MyGraduation</a>
-    <a href="about.html">About</a>
 
 </div>
 
@@ -29,6 +28,7 @@
         </tr>
         </thead>
     </table>
+    <h2 id="alreadyEnrolled"></h2>
 </div>
 
 
@@ -88,12 +88,14 @@
                     })
                         .then(response => {
                             if (response.ok) {
-                                console.log("enrolled student");
+                                document.getElementById('alreadyEnrolled').textContent ="" +
+                                    `You have  been enrolled in this CourseID: ${courseId}`;
                             }
                         });
                 }
                 else{
-                    console.log("enrolled this course already");
+                    document.getElementById('alreadyEnrolled').textContent ="" +
+                        `You have already enrolled this CourseID: ${courseId}`;
                 }
             })
 
@@ -109,6 +111,7 @@
             .then(data => {
                 console.log(data);
                 localStorage.setItem('invoiceRef', JSON.stringify(data.invoiceReferences));
+                console.log(localStorage.getItem('invoiceRef'));
             })
     }
 </script>

@@ -6,15 +6,14 @@
 }
 
 body {
-    line-height: 1.6;
     background-color: #3f1e55;
-    margin: 10px;
     flex-direction: column;
     display: flex;
+    min-height: 100vh;
     color: aliceblue;
     font-family: monospace;
+    margin: 0;
 }
-
 
 .navigation {
     font-family: monospace;
@@ -40,10 +39,10 @@ body {
 }
 
 .main{
-    margin-top: 200px;
+    flex: 1;
+    justify-content: right;
 }
 #coursesTable{
-
     width: 100%;
     border-collapse: collapse;
     font-family: Monospaced, sans-serif;
@@ -64,14 +63,6 @@ body {
 
 }
 
-#enroll:hover {
-    background-color: #8caa5e;
-}
-
-
-#card{
-    font-size: 30px;
-}
 #courseEnrolledIn{
     width: 100%;
     border-collapse: collapse;
@@ -105,9 +96,10 @@ body {
     background-color: #203b04;
 }
 
-.profile{
-    margin-top: 200px;
+#test{
+    background-color: #0078d4;
 }
+
 #forms {
     width: auto;
     margin: auto;
