@@ -5,7 +5,7 @@
     <title>Graduation</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="container">
 <!--navigation-->
 <div class="navigation">
     <a href="index.html">Home</a>
@@ -34,53 +34,56 @@
 
     function checkGraduationEligibility() {
 
-        fetch(`/accounts/student/${studentId}`)
-            .then(response => response.json())
-            .then(data => {
+        console.log("invoice " + invoiceRef);
+        if(!invoiceRef || invoiceRef.length !== 0) {
 
-                if(invoiceRef === null){
-                    document.getElementById('gradStatus').textContent ="" +
-                        "Looks like haven't enrolled Yet!";
-                }
-                else{
-                    const balance = data.hasOutstandingBalance;
-                    const invoiceReferences = JSON.parse(invoiceRef);
+            fetch(`/accounts/student/${studentId}`)
+                .then(response => response.json())
+                .then(data => {
 
-                    if (balance) {
-                        //simulate server response
-                        setTimeout(() => {
-                            const table = document.getElementById('coursesTable');
-                            invoiceReferences.forEach(invoice => {
-                                fetch(`/invoices/reference/${invoice}`,{
-                                    method: 'GET',
-                                    headers: { 'Content-Type': 'application/json'}
-                                })
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        const status = data.status;
-                                        if (status==="OUTSTANDING") {
-                                            table.innerHTML += `
+                        const balance = data.hasOutstandingBalance;
+                        const invoiceReferences = JSON.parse(invoiceRef);
+
+                        if (balance) {
+                            //simulate server response
+                            setTimeout(() => {
+                                const table = document.getElementById('coursesTable');
+                                invoiceReferences.forEach(invoice => {
+                                    fetch(`/invoices/reference/${invoice}`,{
+                                        method: 'GET',
+                                        headers: { 'Content-Type': 'application/json'}
+                                    })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            const status = data.status;
+                                            if (status==="OUTSTANDING") {
+                                                table.innerHTML += `
                             <tr>
                             <td>${invoice}</td>
                             <td><button class="enrollButton" onclick="payInvoice()">Pay</button></td>
                             </tr>
                             `
-                                            document.getElementById('gradStatus').textContent =""+
-                                                'Sorry you are not eligible for Graduation. Pay the following invoices to become eligible';
-                                        }
-                                    })
-                            })
+                                                document.getElementById('gradStatus').textContent =""+
+                                                    'Sorry you are not eligible for Graduation. Pay the following invoices to become eligible';
+                                            }
+                                        })
+                                })
 
-                        }, 3000);
+                            }, 3000);
 
-                    }
-                    else{
-                        eligibleStudent()
-                    }
-                }
+                        }
+                        else{
+                            eligibleStudent()
+                        }
 
-            });
-    }
+                });
+        }
+        else{
+            document.getElementById('gradStatus').textContent ="" +
+                "Looks like haven't enrolled Yet!";
+        }
+        }
+
     function eligibleStudent() {
         document.getElementById('gradStatus').textContent ="" +
             "Your Graduation Status";
