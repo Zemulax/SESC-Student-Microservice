@@ -91,7 +91,11 @@
                     .then(data => {
                         localStorage.clear();
                         localStorage.setItem('studentId', data.studentId);
-                        console.log("is it? ", data.studentId);
+                        localStorage.setItem('firstname', data.firstName);
+                        localStorage.setItem('lastname', data.lastName);
+                        localStorage.setItem('email', data.email);
+
+                        renderStudentDashboard();
                     })
                     .catch(error => {
                         console.error('Error:', error);
