@@ -50,9 +50,9 @@ public class StudentServiceImplementation implements StudentService {
 
     //delete student by specified ID
     @Override
-    public void deleteStudentById(Long studentId) {
-        if (studentRepository.existsById(studentId)) {
-            studentRepository.deleteById(studentId);
+    public void deleteStudentByStudentId(String studentId) {
+        if (studentRepository.existsByStudentId(studentId)) {
+            studentRepository.deleteByStudentId(studentId);
         }
         else {System.out.println("Student not found");}
     }

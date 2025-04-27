@@ -1,18 +1,14 @@
 package com.sesc.unistudycircle.student_service.controllers;
 
-import com.sesc.unistudycircle.student_service.entities.Account;
 import com.sesc.unistudycircle.student_service.entities.Student;
 import com.sesc.unistudycircle.student_service.services.StudentService;
-import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.hateoas.CollectionModel;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.List;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping("/student")
@@ -70,8 +66,8 @@ public class StudentController {
 
     //delete a student
     @DeleteMapping("/{studentId}")
-    public ResponseEntity<String> deleteStudentById(@PathVariable Long studentId) {
-        studentService.deleteStudentById(studentId);
+    public ResponseEntity<String> deleteStudentById(@PathVariable String studentId) {
+        studentService.deleteStudentByStudentId(studentId);
         return new ResponseEntity<>("Student deleted", HttpStatus.OK);
     }
 
