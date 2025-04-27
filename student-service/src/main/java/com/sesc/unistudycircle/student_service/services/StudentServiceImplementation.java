@@ -61,64 +61,64 @@ public class StudentServiceImplementation implements StudentService {
     @Override
     public Student updateStudentById(String studentId, Student updatedStudent) {
 
+
         //check if student exists first
         if (studentRepository.existsByStudentId(studentId)) {
-            //grad student, we'll use it to extract attributes
+            //grab the student, we'll use it to extract attributes
             Student student = studentRepository.findByStudentId(studentId);
+
+            Student finalUpdatedStudent = updateHelper(student, updatedStudent);
 
             //create a copy of student's courses so we can reassign them to the updated student
             Set<Course> courses = new HashSet<>(student.getCourses());
-            System.out.println("Student is: " + student);
-            System.out.println("Course is: " + courses);
 
             //first check if the update is for both firstname and last name
             //if yes the copy everything from old object onto the new object except for lname and fname
-            //if not just copy everything except for attribute requesting update
             if(updatedStudent.getFirstName()!= null && updatedStudent.getLastName() != null) {
 
+
                 //set old object's id on the new object
-                updatedStudent.setId(student.getId());
-                updatedStudent.setStudentId(student.getStudentId());
-                updatedStudent.setCourses(courses);
+                finalUpdatedStudent.setCourses(courses);
 
-                updatedStudent.setFirstName(updatedStudent.getFirstName());
-                updatedStudent.setLastName(updatedStudent.getLastName());
-                updatedStudent.setEmail(student.getEmail());
-                updatedStudent.setPassword(student.getPassword());
+                finalUpdatedStudent.setFirstName(updatedStudent.getFirstName());
+                finalUpdatedStudent.setLastName(updatedStudent.getLastName());
 
-                return studentRepository.save(updatedStudent);
+                return studentRepository.save(finalUpdatedStudent);
             }
+
+            //if update is only for last name
             else if (updatedStudent.getFirstName() != null) {
 
-                updatedStudent.setId(student.getId());
-                updatedStudent.setStudentId(studentId);
-                updatedStudent.setCourses(student.getCourses());
+                finalUpdatedStudent.setFirstName(updatedStudent.getFirstName());
+                finalUpdatedStudent.setLastName(student.getLastName());
 
-                updatedStudent.setFirstName(updatedStudent.getFirstName());
-                updatedStudent.setLastName(student.getLastName());
-                updatedStudent.setEmail(student.getEmail());
-                updatedStudent.setPassword(student.getPassword());
-
-                return studentRepository.save(updatedStudent);
+                return studentRepository.save(finalUpdatedStudent);
             }
+
+            //if update is only for firstname
             else if (updatedStudent.getLastName() != null) {
 
-                updatedStudent.setId(student.getId());
-                updatedStudent.setStudentId(student.getStudentId());
-                updatedStudent.setCourses(student.getCourses());
+                finalUpdatedStudent.setLastName(updatedStudent.getLastName());
+                finalUpdatedStudent.setFirstName(student.getFirstName());
 
-                updatedStudent.setLastName(updatedStudent.getLastName());
-                updatedStudent.setEmail(student.getEmail());
-                updatedStudent.setPassword(student.getPassword());
-                updatedStudent.setFirstName(student.getFirstName());
-
-                return studentRepository.save(updatedStudent);
+                return studentRepository.save(finalUpdatedStudent);
 
             }
 
         }
 
         else {System.out.println("Student not found");}
+
+        return updatedStudent;
+    }
+
+    public Student updateHelper(Student student, Student updatedStudent) {
+        updatedStudent.setId(student.getId());
+        updatedStudent.setStudentId(student.getStudentId());
+        updatedStudent.setCourses(student.getCourses());
+
+        updatedStudent.setEmail(student.getEmail());
+        updatedStudent.setPassword(student.getPassword());
 
         return updatedStudent;
     }
