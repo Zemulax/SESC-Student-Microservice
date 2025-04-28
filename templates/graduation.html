@@ -25,30 +25,39 @@
     </table>
 </div>
 
-
 <script>
     const studentId =  localStorage.getItem('studentId');
-    const invoiceRef = localStorage.getItem('invoiceRef'|| '[]');
+    let invoiceRef = localStorage.getItem('invoiceRef');
+
+    invoiceRef = invoiceRef ? JSON.parse(invoiceRef) : [];
+
+    console.log("invoice after parsing is: " , invoiceRef);
 
     checkGraduationEligibility()
 
     function checkGraduationEligibility() {
 
-        console.log("invoice " + invoiceRef);
-        if(!invoiceRef || invoiceRef.length !== 0) {
+
+        if(Array.isArray(invoiceRef) && invoiceRef.length > 0) {
+
+            console.log("entered if");
 
             fetch(`/accounts/student/${studentId}`)
                 .then(response => response.json())
                 .then(data => {
 
                         const balance = data.hasOutstandingBalance;
-                        const invoiceReferences = JSON.parse(invoiceRef);
 
+                        //const invoiceReferences = JSON.parse(invoiceRef);
                         if (balance) {
+
                             //simulate server response
                             setTimeout(() => {
+
                                 const table = document.getElementById('coursesTable');
-                                invoiceReferences.forEach(invoice => {
+
+                                invoiceRef.forEach(invoice => {
+
                                     fetch(`/invoices/reference/${invoice}`,{
                                         method: 'GET',
                                         headers: { 'Content-Type': 'application/json'}
@@ -80,7 +89,7 @@
         }
         else{
             document.getElementById('gradStatus').textContent ="" +
-                "Looks like haven't enrolled Yet!";
+                "Looks like haven't enrolled in any courses Yet!";
         }
         }
 
@@ -92,16 +101,9 @@
     }
     function payInvoice() {
         window.open('http://localhost:8081/portal', '_blank');
-        // fetch(`/invoices/${invoice}/pay`,{
-        //     method: 'PUT',
-        //     headers: { 'Content-Type': 'application/json' }
-        // })
-        //     .then(response =>{
-        //         if (response.ok) {
-        //             alert("Payment Successful");
-        //         }
-        //     });
+
     }
+
 
 </script>
 </body>

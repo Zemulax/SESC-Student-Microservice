@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: topic-service
-  config:
-    import: configserver:http://config-server:8888
-    fail-fast: true

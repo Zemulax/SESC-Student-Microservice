@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="41575d94-ab7d-4174-9d4a-749d89775264" name="Changes" comment="implemented unit testing">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/student-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/coursesOffered.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/coursesOffered.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/graduation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/graduation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/CentralExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/TopicServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/config/BeanConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/controllers/TopicController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/controllers/TopicSearchController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/dtos/StudentInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/entities/Topic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/repositories/TopicRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/services/HttpRemoteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/services/HttpRemoteServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/services/TopicService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/java/com/sesc/unistudycircle/topic_service/services/TopicServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic-service/src/test/java/com/sesc/unistudycircle/topic_service/TopicServiceApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Zemulax&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Zemulax/SESC-Student-Microservice.git&quot;,
+    &quot;accountId&quot;: &quot;98b29bc9-3090-4513-b501-fcd2bd579880&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/templates/login.html" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2uv0unzOKedUDSTduPiscDMMK6C" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.StudentServiceImplementationIntegratonTest.saveStudent.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.deleteStudentByStudentId.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.getAllStudents.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.getStudentByEmailAndPassword.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.getStudentByEmailAndPasswordAndWhenPasswordIncorrect.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.getStudentByEmailAndPasswordAndWhenPasswordIncorrectReturnsNull.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.getStudentByEmailAndPasswordAndWhenStudentNotFound.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.getStudentByEmailAndPasswordAndWhenStudentNotFoundReturnsNull.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.updateStudentById.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.updateStudentByStudentId.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.updateStudentByStudentId_OnlyUpdatingFirstName.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.updateStudentByStudentId_OnlyUpdatingLastName.executor": "Run",
+    "JUnit.StudentServiceImplementationTest.updateStudentByStudentId_UsingFullUpdate.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.ConfigServerApplication.executor": "Run",
+    "Spring Boot.DiscoveryServerApplication.executor": "Run",
+    "Spring Boot.StudentServiceApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mozay/IdeaProjects/Microservices/templates",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mozay\IdeaProjects\Microservices\templates" />
+      <recent name="C:\Users\mozay\IdeaProjects\Microservices\api-gateway" />
+      <recent name="C:\Users\mozay\IdeaProjects\Microservices\student-service\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mozay\IdeaProjects\Microservices\templates" />
+      <recent name="C:\Users\mozay\IdeaProjects\Microservices\templates\User" />
+      <recent name="C:\Users\mozay\IdeaProjects\Microservices\templates\Admin" />
+      <recent name="C:\Users\mozay\IdeaProjects\Microservices" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.sesc.unistudycircle.student_service.services" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="uk.ac.leedsbeckett.student.service" />
+      <recent name="uk.ac.leedsbeckett.student.controller" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.StudentServiceImplementationTest">
+    <configuration name="StudentServiceImplementationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="student-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sesc.unistudycircle.student_service.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sesc.unistudycircle.student_service.services" />
+      <option name="MAIN_CLASS_NAME" value="com.sesc.unistudycircle.student_service.services.StudentServiceImplementationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceImplementationTest.deleteStudentByStudentId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="student-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sesc.unistudycircle.student_service.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sesc.unistudycircle.student_service.services" />
+      <option name="MAIN_CLASS_NAME" value="com.sesc.unistudycircle.student_service.services.StudentServiceImplementationTest" />
+      <option name="METHOD_NAME" value="deleteStudentByStudentId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceImplementationTest.updateStudentByStudentId_OnlyUpdatingFirstName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="student-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sesc.unistudycircle.student_service.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sesc.unistudycircle.student_service.services" />
+      <option name="MAIN_CLASS_NAME" value="com.sesc.unistudycircle.student_service.services.StudentServiceImplementationTest" />
+      <option name="METHOD_NAME" value="updateStudentByStudentId_OnlyUpdatingFirstName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceImplementationTest.updateStudentByStudentId_OnlyUpdatingLastName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="student-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sesc.unistudycircle.student_service.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sesc.unistudycircle.student_service.services" />
+      <option name="MAIN_CLASS_NAME" value="com.sesc.unistudycircle.student_service.services.StudentServiceImplementationTest" />
+      <option name="METHOD_NAME" value="updateStudentByStudentId_OnlyUpdatingLastName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceImplementationTest.updateStudentByStudentId_UsingFullUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="student-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sesc.unistudycircle.student_service.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sesc.unistudycircle.student_service.services" />
+      <option name="MAIN_CLASS_NAME" value="com.sesc.unistudycircle.student_service.services.StudentServiceImplementationTest" />
+      <option name="METHOD_NAME" value="updateStudentByStudentId_UsingFullUpdate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sesc.unistudycircle.api_gateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="config-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sesc.unistudycircle.config_server.ConfigServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscoveryServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="discovery-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cesc.unistudycircle.discovery_server.DiscoveryServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="student" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="uk.ac.leedsbeckett.student.StudentApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="student-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sesc.unistudycircle.student_service.StudentServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TopicServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="topic-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sesc.unistudycircle.topic_service.TopicServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.StudentServiceImplementationTest" />
+        <item itemvalue="JUnit.StudentServiceImplementationTest.updateStudentByStudentId_UsingFullUpdate" />
+        <item itemvalue="JUnit.StudentServiceImplementationTest.deleteStudentByStudentId" />
+        <item itemvalue="JUnit.StudentServiceImplementationTest.updateStudentByStudentId_OnlyUpdatingLastName" />
+        <item itemvalue="JUnit.StudentServiceImplementationTest.updateStudentByStudentId_OnlyUpdatingFirstName" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41575d94-ab7d-4174-9d4a-749d89775264" name="Changes" comment="" />
+      <created>1743113965845</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743113965845</updated>
+      <workItem from="1743113967041" duration="3464000" />
+      <workItem from="1743907056363" duration="2700000" />
+      <workItem from="1743951205364" duration="169263000" />
+      <workItem from="1745233094356" duration="14216000" />
+      <workItem from="1745281832520" duration="4703000" />
+      <workItem from="1745324392270" duration="11643000" />
+      <workItem from="1745772650153" duration="16525000" />
+      <workItem from="1745829046533" duration="23766000" />
+    </task>
+    <task id="LOCAL-00001" summary="dockerised microservices">
+      <option name="closed" value="true" />
+      <created>1743114463293</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743114463293</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added registration service">
+      <option name="closed" value="true" />
+      <created>1743951808887</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743951808887</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added login">
+      <option name="closed" value="true" />
+      <created>1743952734263</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743952734263</updated>
+    </task>
+    <task id="LOCAL-00004" summary="working login and registration features">
+      <option name="closed" value="true" />
+      <created>1743966151948</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743966151948</updated>
+    </task>
+    <task id="LOCAL-00005" summary="implemented view courses + all html files">
+      <option name="closed" value="true" />
+      <created>1744051945609</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744051945609</updated>
+    </task>
+    <task id="LOCAL-00006" summary="config file">
+      <option name="closed" value="true" />
+      <created>1744051991593</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744051991593</updated>
+    </task>
+    <task id="LOCAL-00007" summary="enroll fix">
+      <option name="closed" value="true" />
+      <created>1744053952536</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744053952536</updated>
+    </task>
+    <task id="LOCAL-00008" summary="profile display">
+      <option name="closed" value="true" />
+      <created>1744055764782</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1744055764782</updated>
+    </task>
+    <task id="LOCAL-00009" summary="implemented update student profile">
+      <option name="closed" value="true" />
+      <created>1744154719137</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1744154719137</updated>
+    </task>
+    <task id="LOCAL-00010" summary="implemented graduation eligibility plus other cleanups">
+      <option name="closed" value="true" />
+      <created>1744236272714</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1744236272714</updated>
+    </task>
+    <task id="LOCAL-00011" summary="cleanups and adjustments">
+      <option name="closed" value="true" />
+      <created>1744572915645</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1744572915645</updated>
+    </task>
+    <task id="LOCAL-00012" summary="cleanups">
+      <option name="closed" value="true" />
+      <created>1744754021685</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1744754021685</updated>
+    </task>
+    <task id="LOCAL-00013" summary="cleanups">
+      <option name="closed" value="true" />
+      <created>1745121404699</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745121404699</updated>
+    </task>
+    <task id="LOCAL-00014" summary="cleanups">
+      <option name="closed" value="true" />
+      <created>1745121430556</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745121430556</updated>
+    </task>
+    <task id="LOCAL-00015" summary="updated updateMethod">
+      <option name="closed" value="true" />
+      <created>1745775110408</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1745775110408</updated>
+    </task>
+    <task id="LOCAL-00016" summary="implemented unit testing">
+      <option name="closed" value="true" />
+      <created>1745785899994</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1745785899994</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dockerised microservices" />
+    <MESSAGE value="added registration service" />
+    <MESSAGE value="added login" />
+    <MESSAGE value="working login and registration features" />
+    <MESSAGE value="implemented view courses + all html files" />
+    <MESSAGE value="config file" />
+    <MESSAGE value="enroll fix" />
+    <MESSAGE value="profile display" />
+    <MESSAGE value="implemented update student profile" />
+    <MESSAGE value="implemented graduation eligibility" />
+    <MESSAGE value="implemented graduation eligibility plus other cleanups" />
+    <MESSAGE value="cleanups and adjustments" />
+    <MESSAGE value="cleanups" />
+    <MESSAGE value="updated updateMethod" />
+    <MESSAGE value="implemented unit testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented unit testing" />
+  </component>
+</project>
