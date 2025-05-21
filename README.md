@@ -7,10 +7,10 @@ The project showcases a microservices architecture designed to support an online
 1. Backend: Java, SpringBoot
 2. Frontend: HTML, CSS, Javascript
 3. Microservices Architecture:
-   API Gateway: Manages and routes client requests
-   Discovery Server: Service registration and discovery
-   Config Server: Centralized configuration management
-   Student Service: handles student-related operations
+   1. API Gateway: Manages and routes client requests
+   1. Discovery Server: Service registration and discovery
+   3. Config Server: Centralized configuration management
+   4. Student Service: handles student-related operations
 4. Containerization: Docker, Docker Compose
 5. Web Server: Nginx
 
